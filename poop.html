@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="mentor.css"> <!-- Link to external CSS -->
+  </head>
+  <body>
+    <h1 class="about-title text-center mt-4">About Us</h1>
+
+    <!-- Minimalistic Scrolling Text -->
+    <div class="marquee-container">
+      <p class="marquee-text">Empowering students through mentorship. Connecting knowledge, guidance, and success.</p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="home.html">Home</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" onkeyup="searchProfiles()">
+            <button class="btn btn-outline-success" type="button">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+      function searchProfiles() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+
+        // Search Student Profiles
+        let studentCards = document.querySelectorAll(".student-card");
+        studentCards.forEach(card => {
+          let name = card.querySelector(".card-title").innerText.toLowerCase();
+          let usn = card.querySelector(".list-group-item").innerText.toLowerCase();
+          let email = card.querySelector("a").innerText.toLowerCase();
+
+          if (name.includes(input) || usn.includes(input) || email.includes(input)) {
+            card.style.display = "block"; // Show matching student card
+          } else {
+            card.style.display = "none"; // Hide non-matching student card
+          }
+        });
+
+        // Search Professor Profile
+        let professorCard = document.querySelector(".card-ment");
+        if (professorCard) {
+          let professorName = professorCard.querySelector(".card-title").innerText.toLowerCase();
+          let professorEmail = professorCard.querySelector("a").innerText.toLowerCase();
+
+          let professorContainer = professorCard.closest(".container"); // Ensure visibility of the entire section
+          if (professorName.includes(input) || professorEmail.includes(input)) {
+            professorContainer.style.display = "block"; // Show professor card if it matches search
+          } else {
+            professorContainer.style.display = "none"; // Hide professor card otherwise
+          }
+        }
+      }
+    </script>
+
+    <!-- Professor Profile -->
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="https://i.postimg.cc/Z5M9Dm18/prof.jpg" class="img-fluid rounded-start" alt="Professor Image">
+        </div>
+        <div class="col-md-8">
+          <div class="card-ment">
+            <h4 class="card-title">Dr. Vasudeva</h4>
+            <h5>Professor</h5>
+            <h5>Dept. of Information Science and Engineering</h5>
+            <h6>Email: <a href="mailto:Vasudeva.acharya@nitte-edu.in">Vasudeva.acharya@nitte-edu.in</a></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Profiles -->
+    <div class="container">
+      <div class="row">
+        <!-- Student Cards -->
+        <div class="col-md-6 col-lg-4 student-card">
+          <div class="card">
+            <img src="https://university-student-photos.s3.ap-south-1.amazonaws.com/049/student_photos%2FNNM24IS145.JPG" class="card-img-top" alt="P Devdat">
+            <div class="card-body">
+              <h5 class="card-title">P Devdat</h5>
+              <p class="card-text">Information Science and Engineering (Section-H)</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">USN: NNM24IS145</li>
+              <li class="list-group-item">Email: <a href="mailto:nnm24is145@nmamit.in">nnm24is145@nmamit.in</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Newly Added Student Cards -->
+        <div class="col-md-6 col-lg-4 student-card">
+          <div class="card">
+            <img src="https://university-student-photos.s3.ap-south-1.amazonaws.com/049/student_photos%2FNNM24IS146.JPG" class="card-img-top" alt="Usha Nayak">
+            <div class="card-body">
+              <h5 class="card-title">Usha Nayak</h5>
+              <p class="card-text">Information Science and Engineering (Section-H)</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">USN: NNM24IS146</li>
+              <li class="list-group-item">Email: <a href="mailto:nnm24is146@nmamit.in">nnm24is146@nmamit.in</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 student-card">
+          <div class="card">
+            <img src="https://university-student-photos.s3.ap-south-1.amazonaws.com/049/student_photos%2FNNM24IS147.JPG" class="card-img-top" alt="Vinyas Rao">
+            <div class="card-body">
+              <h5 class="card-title">Vinyas Rao</h5>
+              <p class="card-text">Information Science and Engineering (Section-H)</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">USN: NNM24IS147</li>
+              <li class="list-group-item">Email: <a href="mailto:nnm24is147@nmamit.in">nnm24is147@nmamit.in</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 student-card">
+          <div class="card">
+            <img src="https://university-student-photos.s3.ap-south-1.amazonaws.com/049/student_photos%2FNNM24IS148.JPG" class="card-img-top" alt="Suyash Patkar">
+            <div class="card-body">
+              <h5 class="card-title">Suyash Patkar</h5>
+              <p class="card-text">Information Science and Engineering (Section-H)</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">USN: NNM24IS148</li>
+              <li class="list-group-item">Email: <a href="mailto:nnm24is148@nmamit.in">nnm24is148@nmamit.in</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 student-card">
+          <div class="card">
+            <img src="https://university-student-photos.s3.ap-south-1.amazonaws.com/049/student_photos%2FNNM24IS149.JPG" class="card-img-top" alt="Pavan">
+            <div class="card-body">
+              <h5 class="card-title">Pavan</h5>
+              <p class="card-text">Information Science and Engineering (Section-H)</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">USN: NNM24IS149</li>
+              <li class="list-group-item">Email: <a href="mailto:nnm24is149@nmamit.in">nnm24is149@nmamit.in</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 student-card">
+          <div class="card">
+            <img src="https://i.postimg.cc/QtJKymLK/pava.png" class="card-img-top" alt="Pavan Kumar">
+            <div class="card-body">
+              <h5 class="card-title">Pavan Kumar</h5>
+              <p class="card-text">Information Science and Engineering (Section-H)</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">USN: NNM24IS150</li>
+              <li class="list-group-item">Email: <a href="mailto:nnm24is150@nmamit.in">nnm24is150@nmamit.in</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
